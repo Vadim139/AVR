@@ -1,0 +1,22 @@
+
+**** Build of configuration Debug for project Ster ****
+
+make all 
+Building file: ../lcd_drv.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=1000000UL -MMD -MP -MF"lcd_drv.d" -MT"lcd_drv.d" -c -o"lcd_drv.o" "../lcd_drv.c"
+In file included from ../main.h:12,
+                 from ../lcd_drv.c:1:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../lcd_drv.c: In function 'lcd_nibble':
+../lcd_drv.c:10: error: 'PORTA' undeclared (first use in this function)
+../lcd_drv.c:10: error: (Each undeclared identifier is reported only once
+../lcd_drv.c:10: error: for each function it appears in.)
+../lcd_drv.c: In function 'lcd_command':
+../lcd_drv.c:30: error: 'PORTA' undeclared (first use in this function)
+../lcd_drv.c: In function 'lcd_putchar':
+../lcd_drv.c:38: error: 'PORTA' undeclared (first use in this function)
+../lcd_drv.c: In function 'lcd_init':
+../lcd_drv.c:69: error: 'DDRA' undeclared (first use in this function)
+../lcd_drv.c:75: error: 'PORTA' undeclared (first use in this function)
+make: *** [lcd_drv.o] Error 1

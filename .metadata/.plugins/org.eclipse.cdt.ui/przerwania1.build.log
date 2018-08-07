@@ -1,0 +1,42 @@
+18:04:35 **** Incremental Build of configuration Release for project przerwania1 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: przerwania1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,przerwania1.map -mmcu=atmega8 -o "przerwania1.elf"  ./main.o   
+Finished building target: przerwania1.elf
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex przerwania1.elf  "przerwania1.hex"
+Finished building: przerwania1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex przerwania1.elf  "przerwania1.eep"
+Finished building: przerwania1.eep
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S przerwania1.elf  >"przerwania1.lss"
+Finished building: przerwania1.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 przerwania1.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:     418 bytes (5.1% Full)
+(.text + .data + .bootloader)
+
+Data:          3 bytes (0.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:04:36 Build Finished (took 1s.109ms)
+

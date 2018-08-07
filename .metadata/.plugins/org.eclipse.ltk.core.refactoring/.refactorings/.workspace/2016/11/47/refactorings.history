@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 14 resources" deleteContents="false" description="Delete 14 resources" element1="/1234/ADC_temp.h" element10="/1234/my_defs.h" element11="/1234/PCF8583.h" element12="/1234/sbit.h" element13="/1234/uart.c" element14="/1234/uart.h" element2="/1234/ascii_code.h" element3="/1234/DS18B20.c" element4="/1234/ds18b20.h" element5="/1234/i2c.h" element6="/1234/keypad.h" element7="/1234/lcd_drv.c" element8="/1234/lcd_drv.h" element9="/1234/main.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="14" stamp="1480247429497"/>
+</session>

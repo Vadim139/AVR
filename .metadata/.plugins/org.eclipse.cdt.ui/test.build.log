@@ -1,0 +1,61 @@
+13:34:32 **** Incremental Build of configuration Release for project test ****
+make all 
+Building file: ../lcd_drv.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=16000000UL -MMD -MP -MF"lcd_drv.d" -MT"lcd_drv.d" -c -o "lcd_drv.o" "../lcd_drv.c"
+Finished building: ../lcd_drv.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:500:5: warning: passing argument 1 of 'atoi' makes pointer from integer without a cast
+c:/avr-gcc/lib/gcc/../../avr/include/stdlib.h:266:12: note: expected 'const char *' but argument is of type 'int'
+../main.c:504:5: warning: passing argument 1 of 'atoi' makes pointer from integer without a cast
+c:/avr-gcc/lib/gcc/../../avr/include/stdlib.h:266:12: note: expected 'const char *' but argument is of type 'int'
+Finished building: ../main.c
+ 
+Building file: ../qw.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=16000000UL -MMD -MP -MF"qw.d" -MT"qw.d" -c -o "qw.o" "../qw.c"
+Finished building: ../qw.c
+ 
+Building file: ../uart.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=16000000UL -MMD -MP -MF"uart.d" -MT"uart.d" -c -o "uart.o" "../uart.c"
+../uart.c: In function 'UART_CmdCheck_p':
+../uart.c:539:23: warning: unused variable 'tmp_cmd'
+../uart.c:539:16: warning: unused variable 'tmp_s'
+../uart.c: In function 'uart_readc':
+../uart.c:770:1: warning: control reaches end of non-void function
+../uart.c: In function 'uart_gets':
+../uart.c:721:1: warning: control reaches end of non-void function
+Finished building: ../uart.c
+ 
+Building target: test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,test.map -mmcu=atmega8 -o "test.elf"  ./lcd_drv.o ./main.o ./qw.o ./uart.o   
+Finished building target: test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S test.elf  >"test.lss"
+Finished building: test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex test.elf  "test.hex"
+Finished building: test.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex test.elf  "test.eep"
+Finished building: test.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t test.elf
+   text	   data	    bss	    dec	    hex	filename
+   7062	    446	    185	   7693	   1e0d	test.elf
+   7062	    446	    185	   7693	   1e0d	(TOTALS)
+Finished building: sizedummy
+ 
+
+13:34:34 Build Finished (took 1s.556ms)
+

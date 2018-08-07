@@ -1,0 +1,20 @@
+12:02:48 **** Incremental Build of configuration Release for project Chronometr_final ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=attiny2313 Chronometr_final.elf
+AVR Memory Usage
+----------------
+Device: attiny2313
+
+Program:    1576 bytes (77.0% Full)
+(.text + .data + .bootloader)
+
+Data:         31 bytes (24.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+12:02:48 Build Finished (took 265ms)
+

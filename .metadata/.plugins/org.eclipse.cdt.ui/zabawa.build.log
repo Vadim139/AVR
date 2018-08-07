@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project zabawa ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 zabawa.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:     494 bytes (6.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

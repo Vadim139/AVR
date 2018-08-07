@@ -1,0 +1,26 @@
+/*
+ * main.c
+ *
+ *  Created on: 26-02-2011
+ *      Author: Maciek
+ *      Najprostszy program
+ */
+
+//io.h zawiera informacje o portach w uk³adzie (np DDRB, PORTB)
+#include <avr/io.h>
+//delay.h zawiera podprogram _delay_ms
+#include <util/delay.h>
+
+int main()
+{
+   DDRB = 0xFF;
+   PORTB = 0x00;
+
+   //Nieskoñczona pêtla
+   //W C 0 oznacza fa³sz a ka¿da inna liczba to prawda
+   while(1)
+   {
+      PORTB ^= 1;      //prze³¹cz pin 0 portu B (0->1 lub 1->0)
+      _delay_ms(1000); //Czekaj 1 sekundê
+   }
+}

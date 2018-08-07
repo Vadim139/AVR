@@ -1,0 +1,20 @@
+10:49:38 **** Incremental Build of configuration Release for project Zgrzewarka ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Zgrzewarka.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5796 bytes (70.8% Full)
+(.text + .data + .bootloader)
+
+Data:        305 bytes (29.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+10:49:38 Build Finished (took 277ms)
+

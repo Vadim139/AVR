@@ -1,0 +1,20 @@
+/*
+ * LCD_SSD1803a.h
+ *
+ *  Created on: 09-03-2015
+ *      Author: Dawid
+ */
+
+#ifndef LCD_SSD1803A_H_
+#define LCD_SSD1803A_H_
+
+#define SSD1803_adr 0x0111100
+
+void Write_Command(uint8_t dat);
+void Write_Data(uint8_t dat1);
+void LCDSSD_init(void);
+
+//Commands
+
+
+#endif /* LCD_SSD1803A_H_ */

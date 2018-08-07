@@ -1,0 +1,12 @@
+01:54:34 **** Incremental Build of configuration Release for project Ster_temp ****
+make all 
+Invoking: Print Size
+avr-size --format=berkeley -t Ster_temp.elf
+   text	   data	    bss	    dec	    hex	filename
+   6998	    446	    185	   7629	   1dcd	Ster_temp.elf
+   6998	    446	    185	   7629	   1dcd	(TOTALS)
+Finished building: sizedummy
+ 
+
+01:54:35 Build Finished (took 199ms)
+

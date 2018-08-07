@@ -1,0 +1,51 @@
+/*
+ * LCD_SSD1803a.c
+ *
+ *  Created on: 09-03-2015
+ *      Author: Dawid
+ */
+#include "i2c.h"
+#include "LCD_SSD1803a.h"
+#include <util/delay.h>
+/***********Write_Command***************/
+void Write_Command(uint8_t dat)
+{
+i2cStart();
+i2cWrite(SSD1803_adr);//78
+i2cWrite(0x80);
+i2cWrite(dat);
+i2cStop();
+}
+
+
+/***********Write_Data******************/
+void Write_Data(uint8_t dat1)
+{
+i2cStart();
+i2cWrite(SSD1803_adr);
+i2cWrite(0x40);
+i2cWrite(dat1);
+i2cStop();
+}
+
+void LCDSSD_init(void)
+{
+	Write_Command(0x01); //Clear dispaly
+	_delay_ms(50);
+
+	Write_Command(0x39); //Function SET DL=1 N=1 DH=0 RE=0 IS=1
+	Write_Command(0x06); //Entry mode set I/D=1 S=0
+	Write_Command(0x0c); //Display on D=1 C=0 B=0
+	Write_Command(0x1b); //Internal OSC BS0=1 F[2:0]=011
+	Write_Command(0X55); //Power Icon Contrast set ION=0 BON=1 C[5:4]=01
+	Write_Command(0x6d); //Follower control DON=1 Rab[2:0]==101=4.4
+	Write_Command(0X7F); //Contrast set VOP=C[3:0]=0011
+
+	Write_Command(0x38); //Function SET DL=1 N=1 DH=0 RE=0 IS=0
+	Write_Command(0x3e); //Function set DL=1 N=1 RE=1
+	Write_Command(0x02); //Power down mode PD=0
+	Write_Command(0x05); //Entry mode set BDC=0 BDS=1
+	Write_Command(0x09); //Extended function set FW=0 B/W=0 NW=1
+	Write_Command(0x1e); //Double hight/bisa/display-dot shift UD[2:1]=11 BS1=1 DH'=0
+	Write_Command(0x80); //Set scroll quantity SQ[5:0]=000000
+}

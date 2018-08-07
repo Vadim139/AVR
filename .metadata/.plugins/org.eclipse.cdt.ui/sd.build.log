@@ -1,0 +1,12 @@
+10:56:54 **** Incremental Build of configuration Release for project sd ****
+make all 
+Invoking: Print Size
+avr-size --format=berkeley -t sd.elf
+   text	   data	    bss	    dec	    hex	filename
+  24828	    284	    591	  25703	   6467	sd.elf
+  24828	    284	    591	  25703	   6467	(TOTALS)
+Finished building: sizedummy
+ 
+
+10:56:54 Build Finished (took 192ms)
+

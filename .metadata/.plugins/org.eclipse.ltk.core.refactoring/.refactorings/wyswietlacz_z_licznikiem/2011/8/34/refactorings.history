@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;wyswietlacz_z_licznikiem/Copy of main.c&apos; to &apos;main.c&apos;" description="Rename resource &apos;Copy of main.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Copy of main.c" name="main.c" stamp="1314029722052" updateReferences="true"/>
+</session>

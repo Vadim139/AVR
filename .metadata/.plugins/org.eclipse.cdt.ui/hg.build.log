@@ -1,0 +1,9 @@
+
+**** Build of configuration Debug for project hg ****
+
+make all 
+Building target: hg.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,hg.map -mmcu=atmega16 -o"hg.elf"  ./main.o   
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
+make: *** [hg.elf] Error 1

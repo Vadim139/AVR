@@ -1,0 +1,7 @@
+syntax: glob
+.settings\de.innot.avreclipse.core.prefs
+Debug/
+Release/
+.project
+.hgignore
+.cproject

@@ -1,0 +1,42 @@
+19:14:25 **** Incremental Build of configuration Release for project 1234 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: 1234.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,1234.map -mmcu=atmega644p -o "1234.elf"  ./main.o   
+Finished building target: 1234.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S 1234.elf  >"1234.lss"
+Finished building: 1234.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 1234.elf  "1234.hex"
+Finished building: 1234.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex 1234.elf  "1234.eep"
+Finished building: 1234.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega644p 1234.elf
+AVR Memory Usage
+----------------
+Device: atmega644p
+
+Program:     222 bytes (0.3% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:14:26 Build Finished (took 832ms)
+

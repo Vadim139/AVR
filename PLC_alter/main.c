@@ -1,0 +1,255 @@
+//#include <avr/io.h>
+//#include <util/delay.h>
+//#include <stdlib.h>
+//
+//
+//int main(void)
+//{
+//    DDRB |= (1<<PB3);//OC0A
+//    TCCR0A |= (1<<WGM00);
+//    TCCR0A |= (1<<WGM01);
+//    TCCR0B |= (1<<WGM02);
+//    TCCR0A &= ~(1<<COM0A1);
+//    TCCR0A |= (1<<COM0A0);
+//
+//    TCCR0B |= (1<<CS02);
+//    TCCR0B |= (1<<CS00);
+//    TIMSK0 |= (1<<OCIE0A);
+//    OCR0A = 100;
+//    TIMSK1 |= (1<<OCIE1A);
+//    while(1)
+//    {
+//
+//    }
+//}
+
+/*===========================================================================================================================
+ * main.c
+ *
+ *  Created on: 09-02-2012
+ *      Author: Krzysztof Szromek
+ *      Poligon doswiadczalny w obs³udze uart i RTC (poprzez TWI).
+ *      Kod do obs³ugi poszczególnych elementów podzielony na osobne biblioteki.
+ *		- uart_lib
+ *		- lcd_drv
+ *		- keypad
+ *
+ *      Konfiguracja sprzêtowa:
+ *      PD.0 	- RxD
+ *      PD.1 	- TxD
+ *      PC.0-3 	- ROW_1-4  	- 4 linie wierszy klawiatury matrycowej
+ *      PD.2 	- KEYINT 	- przerwanie z klawiatury
+ *      PB.0-3 	- LED 		- 4x Ledy
+ *
+ *===========================================================================================================================*/
+
+#include <avr/io.h>
+#include <stdlib.h>
+#include <string.h>
+#include <util/delay.h>
+
+#include "main.h"
+#include "my_defs.h"
+#include "sbit.h"
+//#include "keypad.h"
+#include "lcd_drv.h"
+//#include "PCF8583.h"
+//#include "i2c.h"
+//#include "ds18b20.h"
+#include "uart.h"
+
+volatile char *blad = 0;
+unsigned char roz = 0;
+
+
+int main(void) {
+
+//	LED_DDR_1 = 1; // enable output pins
+//	LED_DDR_2 = 1;
+//	LED_DDR_7 = 1;
+//	LED_DDR_4 = 1;
+//	LED_DDR_5 = 1;
+//	LED_DDR_6 = 1;
+//	LED_DDR_8 = 1;
+
+//	ADC6_DDR = 0;
+//	ADC6 = 0;
+//
+//	LED_1 = 1; // turn off leds
+//	LED_2 = 0;
+//	LED_7 = 0;
+//	LED_4 = 0;
+//	LED_5 = 0;
+//	LED_6 = 0;
+//	LED_8 = 0;
+
+	lcd_init();
+	uart_init((UART_BAUD_SELECT((BAUD),xtalCpu)));
+	uart1_puts("hjk");
+//	keypad_init();
+//	i2cInit();
+//	PCF8583_init();
+//	LED_4 = 1;
+
+//	zmroz(1,1);
+//	zmroz(1,2);
+//	zmroz(1,3);
+//	zmroz(1,4);
+//	LED_5 = 1;
+
+	//	EICRA = (0 << ISC01); // INT0 executed on falling edge
+//	EIMSK |= (1 << INT0);
+
+//	ADMUX = 11000110;
+//	ADMUX = (1 << REFS1) | (1 << REFS0) | (1 << MUX2) | (1 << MUX1);
+//	ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS0) ;//| (1 << ADPS0);
+
+//int buff1, buff2 = 0;
+//long int buff3 = 0;
+
+//	sei();
+uint16_t u = '0';
+int i = 0;
+lcd_blank();
+lcd_xy(0,0);
+//	PCF8583_set_time(18,44,00,00);
+	while (1) {
+		_delay_ms(1000);
+		u = uart1_getc();
+		uart1_putc(u);
+
+		lcd_number(u);
+//		LED_6 = 1;
+//		putdate(0,0,2);
+//		puttime(8, 0, 3);
+//
+////		_delay_ms(300);
+//		ADCSRA &= ~(1 << ADSC);
+//		ADCSRA |= (1 << ADSC);
+//		_delay_ms(300);
+//		lcd_xy(13,1);
+//		buff1 = ADCL;
+//		buff2 = ADCH;
+//		buff3 = (((buff1) + (buff2 << 8)) *5.13);
+//		lcd_lnumber(buff3 - 2731);
+
+
+//		DS18B20_temp(0,0,1,&blad,1);
+//		DS18B20_temp(9,0,1,&blad,2);
+//		DS18B20_temp(0,1,1,&blad,3);
+//		DS18B20_temp(9,1,1,&blad,4);
+//		switch (roz) {
+//		case 1:
+//			DS18B20_temp(0,1,1,&blad);
+//			break;
+//		case 2:
+//			DS18B20_temp(0, 1, 2, &blad);
+//			break;
+//		case 3:
+//			DS18B20_temp(0, 1, 3, &blad);
+//			break;
+//		case 4:
+//			DS18B20_temp(0, 1, 4, &blad);
+//			break;
+//		default:
+//			break;
+//		}
+//		LED_7 = 1;
+	}
+
+	return 0;
+}
+
+/////////////////////////////
+//ISR(INT0_vect) {
+//	_delay_ms(100);
+//	if (KEYINT_R != 0)
+//		return;
+//
+//	keypad_poll();
+//
+//	switch (keypad_pressed) {
+//	case KEY1:
+//		roz = zmroz(1);
+//		LED_4 ^= 1;
+//		LED_7 = LED_5 = LED_6 = 0;
+//		_delay_ms(100);
+//		lcd_xy(0,1);
+//		lcd_blank(16);
+//		break;
+//	case KEY2:
+//		roz = zmroz(2);
+//		LED_5 ^= 1;
+//		LED_4 = LED_7 = LED_6 = 0;
+//		lcd_xy(0,1);
+//		lcd_blank(16);
+//		break;
+//	case KEY3:
+//		roz = zmroz(3);
+//		LED_6 ^= 1;
+//		LED_4 = LED_5 = LED_7 = 0;
+//		lcd_xy(0,1);
+//		lcd_blank(16);
+//		break;
+////	case KEYA:
+////		LED_4 ^= 1;
+////		LED_1 = LED_2 = LED_3 = 0;
+////		break;
+//	case KEY4:
+//		roz = zmroz(4);
+//		LED_7 ^= 1;
+//		LED_4 = LED_5 = LED_6 = 0;
+//		lcd_xy(0,1);
+//		lcd_blank(16);
+//		break;////////////////////////////////
+//	case KEY5:
+//		LED_2 ^= 1;
+//		LED_1 = LED_3 = LED_4 = 0;
+//		break;
+//	case KEY6:
+//		LED_3 ^= 1;
+//		LED_1 = LED_2 = LED_4 = 0;
+//		break;
+//	case KEYB:
+//		LED_4 ^= 1;
+//		LED_1 = LED_2 = LED_3 = 0;
+//		break;
+//	case KEY7:
+//		LED_1 ^= 1;
+//		LED_2 = LED_3 = LED_4 = 0;
+//		break;
+//	case KEY8:
+//		LED_2 ^= 1;
+//		LED_1 = LED_3 = LED_4 = 0;
+//		break;
+//	case KEY9:
+//		LED_3 ^= 1;
+//		LED_1 = LED_2 = LED_4 = 0;
+//		break;
+//	case KEYC:
+//		LED_4 ^= 1;
+//		LED_1 = LED_2 = LED_3 = 0;
+//		break;
+//	case KEYSTAR:
+//		LED_1 ^= 1;
+//		LED_2 = LED_3 = LED_4 = 0;
+//		break;
+//	case KEY0:
+//		LED_2 ^= 1;
+//		LED_1 = LED_3 = LED_4 = 0;
+//		break;
+//	case KEYHASH:
+//		LED_3 ^= 1;
+//		LED_1 = LED_2 = LED_4 = 0;
+//		break;
+//	case KEYD:
+//		LED_4 ^= 1;
+//		LED_1 = LED_2 = LED_3 = 0;
+//		;
+//		break;
+//	default:///////////////////////////////
+//		break;
+//	}
+//	*blad = 1;
+//}
+///////////////////////////////

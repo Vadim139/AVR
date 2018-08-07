@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project Naswietlarka ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Naswietlarka.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    3684 bytes (45.0% Full)
+(.text + .data + .bootloader)
+
+Data:        326 bytes (31.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

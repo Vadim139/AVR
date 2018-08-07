@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project Destylator ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Destylator.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    6348 bytes (77.5% Full)
+(.text + .data + .bootloader)
+
+Data:        377 bytes (36.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

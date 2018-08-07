@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project przyciski ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 przyciski.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:     406 bytes (5.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

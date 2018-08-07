@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Alarm_SM/RS485.cpp&apos; to &apos;RS485.c&apos;" description="Rename resource &apos;RS485.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="RS485.cpp" name="RS485.c" stamp="1513508246735" updateReferences="true"/>
+</session>

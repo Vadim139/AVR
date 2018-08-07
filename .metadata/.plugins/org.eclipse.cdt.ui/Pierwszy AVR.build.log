@@ -1,0 +1,9 @@
+
+**** Build of configuration Release for project Pierwszy AVR ****
+
+make all 
+Building target: Pierwszy AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Pierwszy AVR.map -mmcu=atmega8 -o"Pierwszy AVR.elf"  ./main.o   
+avr-gcc.exe: AVR.map: No such file or directory
+make: *** [Pierwszy AVR.elf] Error 1

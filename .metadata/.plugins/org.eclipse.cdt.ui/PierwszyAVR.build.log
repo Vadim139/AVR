@@ -1,0 +1,42 @@
+13:41:13 **** Incremental Build of configuration Release for project PierwszyAVR ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: PierwszyAVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,PierwszyAVR.map -mmcu=atmega8 -o "PierwszyAVR.elf"  ./main.o   
+Finished building target: PierwszyAVR.elf
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex PierwszyAVR.elf  "PierwszyAVR.hex"
+Finished building: PierwszyAVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex PierwszyAVR.elf  "PierwszyAVR.eep"
+Finished building: PierwszyAVR.eep
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S PierwszyAVR.elf  >"PierwszyAVR.lss"
+Finished building: PierwszyAVR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 PierwszyAVR.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    3988 bytes (48.7% Full)
+(.text + .data + .bootloader)
+
+Data:        264 bytes (25.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:41:14 Build Finished (took 975ms)
+

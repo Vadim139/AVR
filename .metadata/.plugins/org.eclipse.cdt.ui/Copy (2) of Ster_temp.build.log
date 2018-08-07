@@ -1,0 +1,11 @@
+20:50:41 **** Incremental Build of configuration Release for project Copy (2) of Ster_temp ****
+make all 
+Building target: Copy (2) of Ster_temp.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Copy (2) of Ster_temp.map -mmcu=atmega8 -o "Copy (2) of Ster_temp.elf"  ./lcd_drv.o ./main.o ./qw.o ./uart.o   
+/usr/bin/sh: -c: line 1: syntax error near unexpected token `(2'
+/usr/bin/sh: -c: line 1: `avr-gcc -Wl,-Map,Copy (2) of Ster_temp.map -mmcu=atmega8 -o "Copy (2) of Ster_temp.elf"  ./lcd_drv.o ./main.o ./qw.o ./uart.o   '
+make: *** [Copy (2) of Ster_temp.elf] Error 258
+
+20:50:41 Build Finished (took 285ms)
+

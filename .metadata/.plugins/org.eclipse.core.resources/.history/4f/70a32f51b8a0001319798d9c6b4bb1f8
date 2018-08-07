@@ -1,0 +1,140 @@
+/*===========================================================================================================================
+ * main.c
+ *
+ *  Created on: 09-02-2012
+ *      Author: Krzysztof Szromek
+ *      Poligon doswiadczalny w obs³udze uart i RTC (poprzez TWI).
+ *      Kod do obs³ugi poszczególnych elementów podzielony na osobne biblioteki.
+ *		- uart_lib
+ *		- lcd_drv
+ *		- keypad
+ *
+ *      Konfiguracja sprzêtowa:
+ *      PD.0 	- RxD
+ *      PD.1 	- TxD
+ *      PC.0-3 	- ROW_1-4  	- 4 linie wierszy klawiatury matrycowej
+ *      PD.2 	- KEYINT 	- przerwanie z klawiatury
+ *      PB.0-3 	- LED 		- 4x Ledy
+ *
+ *===========================================================================================================================*/
+
+#include <avr/io.h>
+#include <stdlib.h>
+#include <string.h>
+#include <util/delay.h>
+
+#include "my_defs.h"
+#include "sbit.h"
+#include "uart.h"
+#include "lcd_drv.h"
+//#include "ascii_code.h"
+
+uint8_t title[] = ("Atmega 644 do bazy! Odbior!\0");
+uint8_t ok[] = ("Przyjalem\n\r");
+uint8_t bye[] = ("Nara!\0");
+//uint8_t t[]     = ("T = ");
+
+char bufor = 0;
+
+
+int main(void) {
+
+//	LED_DDR_1 = 1; // enable output pins
+//	LED_DDR_2 = 1;
+	LED_DDR_3 = 1;
+	LED_DDR_4 = 1;
+	LED_DDR_5 = 1;
+	LED_DDR_6 = 1;
+
+//	LED_1 = 0; // turn off leds
+//	LED_2 = 0;
+	LED_3 = 0;
+	LED_4 = 0;
+	LED_5 = 0;
+	LED_6 = 1;
+
+	lcd_init();
+	lcd_xy(0,1);
+	lcd_blank(16);
+	lcd_xy(0,1);
+	lcd_puts("1234");
+//	lcd_putchar(28);
+//	uart_init((UART_BAUD_SELECT((BAUD),xtalCpu)));
+	LED_4 = 1;
+
+	sei();
+
+	LED_6 = 0;
+//	uart_puts_P( "\rDS18X20 1-Wire-Reader Demo by Martin Thomas\r" );
+//		uart_puts_P( "-------------------------------------------" );
+//
+//		uart_puts_P( " DS18X20 Sensor(s) available:\r" );
+//	UART_clearscreen();
+//	while(1)
+//	uart_puts(title);
+//	UART_nextline();
+//	UART_nextline();
+
+float fl = 259.5839;
+	while (1){
+		bufor = uart_getc();
+		if (bufor != 0) {
+			switch (bufor) {
+			case '1':
+				LED_1 ^= 1;
+				LED_2 = LED_3 = LED_4 = 0;
+				break;
+			case '2':
+				LED_2 ^= 1;
+				LED_1 = LED_3 = LED_4 = 0;
+//				uart_puts("lalalalal");
+//				uart_putc('l');
+				UART_sendc('l');
+//				_delay_ms(3000);
+				break;
+			case '3':
+				LED_3 ^= 1;
+				LED_1 = LED_2 = LED_4 = 0;
+//				uart_puti(231);
+				UART_sendi(23154);
+//				_delay_ms(3000);
+				break;
+			case '4':
+				LED_4 ^= 1;
+				LED_1 = LED_2 = LED_3 = 0;
+//				uart_putc('s');
+//				uart_putc(sizeof(title));
+//				uart_puts(title);
+				UART_sends(title);
+//				_delay_ms(3000);
+				break;
+			case '0':
+				LED_1 = LED_2 = LED_3 = LED_4 = 0;
+				break;
+			case 'h':
+//				uart_putc(sizeof(ok));
+//				uart_puts(ok);
+				UART_sendf(fl, 3,4);
+				break;
+			case 'l':
+				LED_2 ^= 1;
+				LED_1 = LED_3 = LED_4 = 0;
+//				uart_putc(sizeof("lalalalal ") - 1);
+//				uart_puts("lalalalal ");
+//				uart_putc('l');
+				UART_sends("lalalalala");
+//				_delay_ms(3000);
+				break;
+			default:
+				break;
+			}
+		}
+
+
+	}
+
+	return 0;
+}
+
+
+

@@ -1,0 +1,42 @@
+/*
+ * main.c
+ *
+ *  Created on: 2-03-2011
+ *      Author: Maciek
+ *      Kolejny przyk³ad
+ */
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+//Knfiguracja sprzêtowa: do portu B podpiête s¹ 4 diody do pinów 0-3
+
+//Dobrze jest na pocz¹tku okreliæ po³¹czenia w poni¿szy sposób, w razie zmiany
+//konfiguracji sprzêtowej ³atwiej jest zaminiæ dane w jednym miejscu ni¿ w 50 :)
+#define LED_DIR DDRB
+#define LED_P   PORTB
+
+int main()
+{
+	//Inicjalizacja portów
+	LED_DIR = 0x0F;
+	LED_P = 0x00;
+
+	//Zapal pierwsz¹ diodê
+	LED_P |= (1<<0);
+	_delay_ms(1000);
+
+	//Zapal 3 diodê
+	LED_P |= (1<<2);
+	_delay_ms(1000);
+
+	//Prze³¹cz (zgaœ) pierwsz¹ diodê
+	LED_P ^= (1<<0);
+	_delay_ms(1000);
+
+	// Zgaœ 3 diodê
+	LED_P &=~(1<<2);
+
+	//Nieskoñczona pêtla
+	for(;;);
+}

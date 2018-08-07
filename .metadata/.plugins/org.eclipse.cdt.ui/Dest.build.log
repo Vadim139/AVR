@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project Dest ****
+
+make all 
+Building file: ../lcd_drv.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=1000000UL -MMD -MP -MF"lcd_drv.d" -MT"lcd_drv.d" -c -o"lcd_drv.o" "../lcd_drv.c"
+../lcd_drv.c: In function 'lcd_nibble':
+../lcd_drv.c:10: error: 'PORTA' undeclared (first use in this function)
+../lcd_drv.c:10: error: (Each undeclared identifier is reported only once
+../lcd_drv.c:10: error: for each function it appears in.)
+../lcd_drv.c: In function 'lcd_command':
+../lcd_drv.c:30: error: 'PORTA' undeclared (first use in this function)
+../lcd_drv.c: In function 'lcd_putchar':
+../lcd_drv.c:38: error: 'PORTA' undeclared (first use in this function)
+../lcd_drv.c: In function 'lcd_init':
+../lcd_drv.c:74: error: 'DDRA' undeclared (first use in this function)
+../lcd_drv.c:80: error: 'PORTA' undeclared (first use in this function)
+make: *** [lcd_drv.o] Error 1

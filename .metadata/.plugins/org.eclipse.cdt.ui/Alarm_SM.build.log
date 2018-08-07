@@ -1,0 +1,41 @@
+12:41:29 **** Incremental Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+In file included from ../main.c:30:0:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:81:6: warning: unused variable 'i'
+Finished building: ../main.c
+ 
+Building target: Alarm_SM.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Alarm_SM.map -mmcu=atmega644p -o "Alarm_SM.elf"  ./DS18B20.o ./I2C_slave.o ./MFRC522.o ./RS485.o ./lcd_drv.o ./main.o ./pgmspace.o ./uart.o ./variables.o   
+Finished building target: Alarm_SM.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Alarm_SM.elf  >"Alarm_SM.lss"
+Finished building: Alarm_SM.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Alarm_SM.elf  "Alarm_SM.hex"
+Finished building: Alarm_SM.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Alarm_SM.elf  "Alarm_SM.eep"
+Finished building: Alarm_SM.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t Alarm_SM.elf
+   text	   data	    bss	    dec	    hex	filename
+  18584	    630	    866	  20080	   4e70	Alarm_SM.elf
+  18584	    630	    866	  20080	   4e70	(TOTALS)
+Finished building: sizedummy
+ 
+
+12:41:35 Build Finished (took 5s.974ms)
+

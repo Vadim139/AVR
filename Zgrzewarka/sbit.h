@@ -1,0 +1,171 @@
+#ifndef _main_h_
+#define _main_h_
+
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+#include "my_defs.h"
+
+//#define XTAL	16e6
+//#define F_CPU   XTAL
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+//// klawiatura
+//#define	ROW_1		SBIT( PORTC, 0 )
+//#define	ROW_R_1		SBIT( PINC, 0 )
+//#define	ROW_DDR_1	SBIT( DDRC, 0 )
+//
+//#define	ROW_2		SBIT( PORTC, 1 )
+//#define	ROW_R_2		SBIT( PINC, 1 )
+//#define	ROW_DDR_2	SBIT( DDRC, 1 )
+//
+//#define	ROW_3		SBIT( PORTC, 2 )
+//#define	ROW_R_3		SBIT( PINC, 2 )
+//#define	ROW_DDR_3	SBIT( DDRC, 2 )
+//
+//#define	ROW_4		SBIT( PORTC, 3 )
+//#define	ROW_R_4		SBIT( PINC, 3 )
+//#define	ROW_DDR_4	SBIT( DDRC, 3 )
+//
+//#define	COL_1		SBIT( PORTC, 4 )
+//#define	COL_R_1		SBIT( PINC, 4 )
+//#define	COL_DDR_1	SBIT( DDRC, 4 )
+//
+//#define	COL_2		SBIT( PORTC, 5 )
+//#define	COL_R_2		SBIT( PINC, 5 )
+//#define	COL_DDR_2	SBIT( DDRC, 5 )
+//
+//#define	COL_3		SBIT( PORTC, 6 )
+//#define	COL_R_3		SBIT( PINC, 6 )
+//#define	COL_DDR_3	SBIT( DDRC, 6 )
+//
+//#define	COL_4		SBIT( PORTC, 7 )
+//#define	COL_R_4		SBIT( PINC, 7 )
+//#define	COL_DDR_4	SBIT( DDRC, 7 )
+//
+//#define	KEYINT		SBIT( PORTD, 2 )
+//#define	KEYINT_R	SBIT( PIND, 2 )
+//#define	KEYINT_DDR 	SBIT( DDRD, 2 )
+
+// ledy
+//#define	LED_1		SBIT( PORTD, 0 )
+//#define	LED_DDR_1	SBIT( DDRD, 0 )
+
+#define	ADC_1		SBIT( PORTC, 0 )
+#define	ADC_DDR_1	SBIT( DDRC, 0 )
+#define	ADCin_1		SBIT( PINC, 0 )
+
+#define	CON_1		SBIT( PORTD, 1 )
+#define	CON_DDR_1	SBIT( DDRD, 1 )
+
+#define	CON_2		SBIT( PORTD, 2 )
+#define	CON_DDR_2	SBIT( DDRD, 2 )
+
+#define	SW_1		SBIT( PORTD, 3 )
+#define	SW_DDR_1	SBIT( DDRD, 3 )
+
+#define	BUZ_1		SBIT( PORTD, 4 )
+#define	BUZ_DDR_1	SBIT( DDRD, 4 )
+
+//#define	LED_2		SBIT( PORTD, 1 )
+//#define	LED_DDR_2	SBIT( DDRD, 1 )
+//
+//#define	LED_3		SBIT( PORTD, 2 )
+//#define	LED_DDR_3	SBIT( DDRD, 2 )
+//
+//#define	LED_4		SBIT( PORTD, 3 )
+//#define	LED_DDR_4	SBIT( DDRD, 3 )
+//
+//#define	LED_5		SBIT( PORTD, 4 )
+//#define	LED_DDR_5	SBIT( DDRD, 4 )
+//
+//#define	LED_6		SBIT( PORTD, 5 )
+//#define	LED_DDR_6	SBIT( DDRD, 5 )
+//
+//#define	LED_7		SBIT( PORTD, 6 )
+//#define	LED_DDR_7	SBIT( DDRD, 6 )
+//
+//#define	LED_8		SBIT( PORTD, 7 )
+//#define	LED_DDR_8	SBIT( DDRD, 7 )
+
+// LED display
+#define	LD_a		SBIT( PORTB, 0 )
+#define	LD_DDR_a	SBIT( DDRB, 0 )
+
+#define	LD_b		SBIT( PORTB, 1 )
+#define	LD_DDR_b	SBIT( DDRB, 1 )
+
+#define	LD_c		SBIT( PORTB, 2 )
+#define	LD_DDR_c	SBIT( DDRB, 2 )
+
+#define	LD_d		SBIT( PORTB, 3 )
+#define	LD_DDR_d	SBIT( DDRB, 3 )
+
+#define	LD_e		SBIT( PORTB, 4 )
+#define	LD_DDR_e	SBIT( DDRB, 4 )
+
+#define	LD_f		SBIT( PORTB, 5 )
+#define	LD_DDR_f	SBIT( DDRB, 5 )
+
+#define	LD_g		SBIT( PORTB, 6 )
+#define	LD_DDR_g	SBIT( DDRB, 6 )
+
+#define	LD_dt		SBIT( PORTB, 7 )
+#define	LD_DDR_dt	SBIT( DDRB, 7 )
+
+#define	LD_an_1		SBIT( PORTC, 1 )
+#define	LD_DDRan_1	SBIT( DDRC, 1 )
+
+#define	LD_an_2		SBIT( PORTC, 2 )
+#define	LD_DDRan_2	SBIT( DDRC, 2 )
+
+#define	LD_an_3		SBIT( PORTC, 3 )
+#define	LD_DDRan_3	SBIT( DDRC, 3 )
+
+//// uart
+//#define	UART_RxD		SBIT( PORTD, 1 )
+//#define	UART_RxD_R		SBIT( PIND, 1 )
+//#define	UART_RxD_DDR	SBIT( DDRD, 1 )
+//
+//#define	UART_TxD		SBIT( PORTD, 0 )
+//#define	UART_TxD_R		SBIT( PIND, 0 )
+//#define	UART_TxD_DDR	SBIT( DDRD, 0 )
+
+//// twi
+//#define	TWI_SDA			SBIT( PORTC, 4 )
+//#define	TWI_SDA_R		SBIT( PINC, 4 )
+//#define	TWI_SDA_DDR		SBIT( DDRC, 4 )
+//
+//#define	TWI_SCK			SBIT( PORTC, 5 )
+//#define	TWI_SCK_R		SBIT( PINC, 5 )
+//#define	TWI_SCK_DDR		SBIT( DDRC, 5 )
+
+//// Wiatraki
+//#define	MOT_1		SBIT( PORTB, 0 )
+//#define	MOT_DDR_1	SBIT( DDRB, 0 )
+//
+//#define	MOT_2		SBIT( PORTB, 1 )
+//#define	MOT_DDR_2	SBIT( DDRB, 1 )
+//
+//#define	MOT_3		SBIT( PORTB, 2 )
+//#define	MOT_DDR_3	SBIT( DDRB, 2 )
+//
+//#define	MOT_4		SBIT( PORTB, 3 )
+//#define	MOT_DDR_4	SBIT( DDRB, 3 )
+//
+//#define	MOT_5		SBIT( PORTB, 4 )
+//#define	MOT_DDR_5	SBIT( DDRB, 4 )
+//
+//#define	MOT_6		SBIT( PORTB, 5 )
+//#define	MOT_DDR_6	SBIT( DDRB, 5 )
+//
+//#define	MOT_7		SBIT( PORTB, 6 )
+//#define	MOT_DDR_7	SBIT( DDRB, 6 )
+//
+//#define	MOT_8		SBIT( PORTB, 7 )
+//#define	MOT_DDR_8	SBIT( DDRB, 7 )
+
+#endif
+
+

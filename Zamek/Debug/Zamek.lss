@@ -1,0 +1,258 @@
+
+Zamek.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001cc  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         000003f0  00000000  00000000  00000220  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000691  00000000  00000000  00000610  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
+   4:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+   8:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+   c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  10:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  14:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  18:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  1c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  20:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  24:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  28:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  2c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  30:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  34:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  38:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  3c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  40:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  44:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  48:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  4c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  50:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  54:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  58:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  5c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  60:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  64:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  68:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  6c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  70:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  74:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  78:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+
+0000007c <__ctors_end>:
+  7c:	11 24       	eor	r1, r1
+  7e:	1f be       	out	0x3f, r1	; 63
+  80:	cf ef       	ldi	r28, 0xFF	; 255
+  82:	d0 e1       	ldi	r29, 0x10	; 16
+  84:	de bf       	out	0x3e, r29	; 62
+  86:	cd bf       	out	0x3d, r28	; 61
+  88:	0e 94 4a 00 	call	0x94	; 0x94 <main>
+  8c:	0c 94 e4 00 	jmp	0x1c8	; 0x1c8 <_exit>
+
+00000090 <__bad_interrupt>:
+  90:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000094 <main>:
+#define SW4		3
+#define SW5		4
+#define SW6		5
+#define SW7		6
+
+int main(void) {
+  94:	df 93       	push	r29
+  96:	cf 93       	push	r28
+  98:	00 d0       	rcall	.+0      	; 0x9a <main+0x6>
+  9a:	cd b7       	in	r28, 0x3d	; 61
+  9c:	de b7       	in	r29, 0x3e	; 62
+
+        //Przyciski jako wejscia
+		SW_D &= ~(1 << SW1);
+  9e:	aa e2       	ldi	r26, 0x2A	; 42
+  a0:	b0 e0       	ldi	r27, 0x00	; 0
+  a2:	ea e2       	ldi	r30, 0x2A	; 42
+  a4:	f0 e0       	ldi	r31, 0x00	; 0
+  a6:	80 81       	ld	r24, Z
+  a8:	8e 7f       	andi	r24, 0xFE	; 254
+  aa:	8c 93       	st	X, r24
+		SW_D &= ~(1 << SW2);
+  ac:	aa e2       	ldi	r26, 0x2A	; 42
+  ae:	b0 e0       	ldi	r27, 0x00	; 0
+  b0:	ea e2       	ldi	r30, 0x2A	; 42
+  b2:	f0 e0       	ldi	r31, 0x00	; 0
+  b4:	80 81       	ld	r24, Z
+  b6:	8d 7f       	andi	r24, 0xFD	; 253
+  b8:	8c 93       	st	X, r24
+		SW_D &= ~(1 << SW3);
+  ba:	aa e2       	ldi	r26, 0x2A	; 42
+  bc:	b0 e0       	ldi	r27, 0x00	; 0
+  be:	ea e2       	ldi	r30, 0x2A	; 42
+  c0:	f0 e0       	ldi	r31, 0x00	; 0
+  c2:	80 81       	ld	r24, Z
+  c4:	8b 7f       	andi	r24, 0xFB	; 251
+  c6:	8c 93       	st	X, r24
+		SW_D &= ~(1 << SW4);
+  c8:	aa e2       	ldi	r26, 0x2A	; 42
+  ca:	b0 e0       	ldi	r27, 0x00	; 0
+  cc:	ea e2       	ldi	r30, 0x2A	; 42
+  ce:	f0 e0       	ldi	r31, 0x00	; 0
+  d0:	80 81       	ld	r24, Z
+  d2:	87 7f       	andi	r24, 0xF7	; 247
+  d4:	8c 93       	st	X, r24
+		SW_D &= ~(1 << SW5);
+  d6:	aa e2       	ldi	r26, 0x2A	; 42
+  d8:	b0 e0       	ldi	r27, 0x00	; 0
+  da:	ea e2       	ldi	r30, 0x2A	; 42
+  dc:	f0 e0       	ldi	r31, 0x00	; 0
+  de:	80 81       	ld	r24, Z
+  e0:	8f 7e       	andi	r24, 0xEF	; 239
+  e2:	8c 93       	st	X, r24
+		SW_D &= ~(1 << SW6);
+  e4:	aa e2       	ldi	r26, 0x2A	; 42
+  e6:	b0 e0       	ldi	r27, 0x00	; 0
+  e8:	ea e2       	ldi	r30, 0x2A	; 42
+  ea:	f0 e0       	ldi	r31, 0x00	; 0
+  ec:	80 81       	ld	r24, Z
+  ee:	8f 7d       	andi	r24, 0xDF	; 223
+  f0:	8c 93       	st	X, r24
+		SW_D &= ~(1 << SW7);
+  f2:	aa e2       	ldi	r26, 0x2A	; 42
+  f4:	b0 e0       	ldi	r27, 0x00	; 0
+  f6:	ea e2       	ldi	r30, 0x2A	; 42
+  f8:	f0 e0       	ldi	r31, 0x00	; 0
+  fa:	80 81       	ld	r24, Z
+  fc:	8f 7b       	andi	r24, 0xBF	; 191
+  fe:	8c 93       	st	X, r24
+		//Tym razem podci¹gamy
+		SW_W |= (1 << SW1);
+ 100:	ab e2       	ldi	r26, 0x2B	; 43
+ 102:	b0 e0       	ldi	r27, 0x00	; 0
+ 104:	eb e2       	ldi	r30, 0x2B	; 43
+ 106:	f0 e0       	ldi	r31, 0x00	; 0
+ 108:	80 81       	ld	r24, Z
+ 10a:	81 60       	ori	r24, 0x01	; 1
+ 10c:	8c 93       	st	X, r24
+		SW_W |= (1 << SW2);
+ 10e:	ab e2       	ldi	r26, 0x2B	; 43
+ 110:	b0 e0       	ldi	r27, 0x00	; 0
+ 112:	eb e2       	ldi	r30, 0x2B	; 43
+ 114:	f0 e0       	ldi	r31, 0x00	; 0
+ 116:	80 81       	ld	r24, Z
+ 118:	82 60       	ori	r24, 0x02	; 2
+ 11a:	8c 93       	st	X, r24
+		SW_W |= (1 << SW3);
+ 11c:	ab e2       	ldi	r26, 0x2B	; 43
+ 11e:	b0 e0       	ldi	r27, 0x00	; 0
+ 120:	eb e2       	ldi	r30, 0x2B	; 43
+ 122:	f0 e0       	ldi	r31, 0x00	; 0
+ 124:	80 81       	ld	r24, Z
+ 126:	84 60       	ori	r24, 0x04	; 4
+ 128:	8c 93       	st	X, r24
+		SW_W |= (1 << SW4);
+ 12a:	ab e2       	ldi	r26, 0x2B	; 43
+ 12c:	b0 e0       	ldi	r27, 0x00	; 0
+ 12e:	eb e2       	ldi	r30, 0x2B	; 43
+ 130:	f0 e0       	ldi	r31, 0x00	; 0
+ 132:	80 81       	ld	r24, Z
+ 134:	88 60       	ori	r24, 0x08	; 8
+ 136:	8c 93       	st	X, r24
+		SW_W |= (1 << SW5);
+ 138:	ab e2       	ldi	r26, 0x2B	; 43
+ 13a:	b0 e0       	ldi	r27, 0x00	; 0
+ 13c:	eb e2       	ldi	r30, 0x2B	; 43
+ 13e:	f0 e0       	ldi	r31, 0x00	; 0
+ 140:	80 81       	ld	r24, Z
+ 142:	80 61       	ori	r24, 0x10	; 16
+ 144:	8c 93       	st	X, r24
+		SW_W |= (1 << SW6);
+ 146:	ab e2       	ldi	r26, 0x2B	; 43
+ 148:	b0 e0       	ldi	r27, 0x00	; 0
+ 14a:	eb e2       	ldi	r30, 0x2B	; 43
+ 14c:	f0 e0       	ldi	r31, 0x00	; 0
+ 14e:	80 81       	ld	r24, Z
+ 150:	80 62       	ori	r24, 0x20	; 32
+ 152:	8c 93       	st	X, r24
+		SW_W |= (1 << SW7);
+ 154:	ab e2       	ldi	r26, 0x2B	; 43
+ 156:	b0 e0       	ldi	r27, 0x00	; 0
+ 158:	eb e2       	ldi	r30, 0x2B	; 43
+ 15a:	f0 e0       	ldi	r31, 0x00	; 0
+ 15c:	80 81       	ld	r24, Z
+ 15e:	80 64       	ori	r24, 0x40	; 64
+ 160:	8c 93       	st	X, r24
+
+		LED_D |= (1 << LED1);
+ 162:	a4 e2       	ldi	r26, 0x24	; 36
+ 164:	b0 e0       	ldi	r27, 0x00	; 0
+ 166:	e4 e2       	ldi	r30, 0x24	; 36
+ 168:	f0 e0       	ldi	r31, 0x00	; 0
+ 16a:	80 81       	ld	r24, Z
+ 16c:	81 60       	ori	r24, 0x01	; 1
+ 16e:	8c 93       	st	X, r24
+		LED_D |= (1 << LED2);
+ 170:	a4 e2       	ldi	r26, 0x24	; 36
+ 172:	b0 e0       	ldi	r27, 0x00	; 0
+ 174:	e4 e2       	ldi	r30, 0x24	; 36
+ 176:	f0 e0       	ldi	r31, 0x00	; 0
+ 178:	80 81       	ld	r24, Z
+ 17a:	82 60       	ori	r24, 0x02	; 2
+ 17c:	8c 93       	st	X, r24
+		LED_D |= (1 << LED3);
+ 17e:	a4 e2       	ldi	r26, 0x24	; 36
+ 180:	b0 e0       	ldi	r27, 0x00	; 0
+ 182:	e4 e2       	ldi	r30, 0x24	; 36
+ 184:	f0 e0       	ldi	r31, 0x00	; 0
+ 186:	80 81       	ld	r24, Z
+ 188:	84 60       	ori	r24, 0x04	; 4
+ 18a:	8c 93       	st	X, r24
+
+		LED_P |= (1 << LED1);
+ 18c:	a5 e2       	ldi	r26, 0x25	; 37
+ 18e:	b0 e0       	ldi	r27, 0x00	; 0
+ 190:	e5 e2       	ldi	r30, 0x25	; 37
+ 192:	f0 e0       	ldi	r31, 0x00	; 0
+ 194:	80 81       	ld	r24, Z
+ 196:	81 60       	ori	r24, 0x01	; 1
+ 198:	8c 93       	st	X, r24
+
+	while (1) {
+
+		if (SW_R & (1 << SW1) | (1 << SW6))
+ 19a:	e9 e2       	ldi	r30, 0x29	; 41
+ 19c:	f0 e0       	ldi	r31, 0x00	; 0
+ 19e:	80 81       	ld	r24, Z
+			LED_P ^= (1 << LED2);
+ 1a0:	a5 e2       	ldi	r26, 0x25	; 37
+ 1a2:	b0 e0       	ldi	r27, 0x00	; 0
+ 1a4:	e5 e2       	ldi	r30, 0x25	; 37
+ 1a6:	f0 e0       	ldi	r31, 0x00	; 0
+ 1a8:	90 81       	ld	r25, Z
+ 1aa:	82 e0       	ldi	r24, 0x02	; 2
+ 1ac:	89 27       	eor	r24, r25
+ 1ae:	8c 93       	st	X, r24
+
+		if (SW_R & (1 << SW1) | (1 << SW7))
+ 1b0:	e9 e2       	ldi	r30, 0x29	; 41
+ 1b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 1b4:	80 81       	ld	r24, Z
+					LED_P ^= (1 << LED3);
+ 1b6:	a5 e2       	ldi	r26, 0x25	; 37
+ 1b8:	b0 e0       	ldi	r27, 0x00	; 0
+ 1ba:	e5 e2       	ldi	r30, 0x25	; 37
+ 1bc:	f0 e0       	ldi	r31, 0x00	; 0
+ 1be:	90 81       	ld	r25, Z
+ 1c0:	84 e0       	ldi	r24, 0x04	; 4
+ 1c2:	89 27       	eor	r24, r25
+ 1c4:	8c 93       	st	X, r24
+ 1c6:	e9 cf       	rjmp	.-46     	; 0x19a <main+0x106>
+
+000001c8 <_exit>:
+ 1c8:	f8 94       	cli
+
+000001ca <__stop_program>:
+ 1ca:	ff cf       	rjmp	.-2      	; 0x1ca <__stop_program>

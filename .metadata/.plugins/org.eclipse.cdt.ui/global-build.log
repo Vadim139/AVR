@@ -1,0 +1,414 @@
+12:10:23 **** Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../DS18B20.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"DS18B20.d" -MT"DS18B20.d" -c -o "DS18B20.o" "../DS18B20.c"
+In file included from ../ds18b20.h:33:0,
+                 from ../DS18B20.c:128:
+../main.h:44:13: error: redefinition of typedef 'bool'
+../main.h:32:13: note: previous declaration of 'bool' was here
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../DS18B20.c: In function 'ow_bit_io':
+../DS18B20.c:160:10: warning: unused variable 'sreg'
+make: *** [DS18B20.o] Error 1
+12:10:42 **** Incremental Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../DS18B20.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"DS18B20.d" -MT"DS18B20.d" -c -o "DS18B20.o" "../DS18B20.c"
+In file included from ../ds18b20.h:33:0,
+                 from ../DS18B20.c:128:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../DS18B20.c: In function 'ow_bit_io':
+../DS18B20.c:160:10: warning: unused variable 'sreg'
+Finished building: ../DS18B20.c
+ 
+Building file: ../I2C_slave.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"I2C_slave.d" -MT"I2C_slave.d" -c -o "I2C_slave.o" "../I2C_slave.c"
+Finished building: ../I2C_slave.c
+ 
+Building file: ../MFRC522.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"MFRC522.d" -MT"MFRC522.d" -c -o "MFRC522.o" "../MFRC522.c"
+../MFRC522.c: In function 'MFRC522_Halt':
+../MFRC522.c:481:8: warning: unused variable 'status'
+Finished building: ../MFRC522.c
+ 
+Building file: ../RS485.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"RS485.d" -MT"RS485.d" -c -o "RS485.o" "../RS485.c"
+In file included from ../RS485.h:8:0,
+                 from ../RS485.c:8:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../RS485.c: In function 'RS_Edit':
+../RS485.c:205:10: warning: unused variable 'i'
+../RS485.c: In function 'RS_Check':
+../RS485.c:290:4: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness
+c:/avr-gcc/lib/gcc/../../avr/include/string.h:133:15: note: expected 'const char *' but argument is of type 'uint8_t *'
+../RS485.c:302:4: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness
+c:/avr-gcc/lib/gcc/../../avr/include/string.h:126:14: note: expected 'char *' but argument is of type 'uint8_t *'
+../RS485.c:302:4: warning: pointer targets in passing argument 2 of 'strcpy' differ in signedness
+c:/avr-gcc/lib/gcc/../../avr/include/string.h:126:14: note: expected 'const char *' but argument is of type 'uint8_t *'
+../RS485.c:303:4: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness
+c:/avr-gcc/lib/gcc/../../avr/include/string.h:133:15: note: expected 'const char *' but argument is of type 'uint8_t *'
+../RS485.c: In function 'RS_Process':
+../RS485.c:382:5: warning: pointer targets in passing argument 1 of 'RS_Receive_Multi' differ in signedness
+../RS485.h:74:9: note: expected 'uint8_t *' but argument is of type 'char *'
+../RS485.c:390:5: warning: pointer targets in passing argument 1 of 'RS_Receive_Multi' differ in signedness
+../RS485.h:74:9: note: expected 'uint8_t *' but argument is of type 'char *'
+../RS485.c:397:5: warning: pointer targets in passing argument 1 of 'RS_Receive_Multi' differ in signedness
+../RS485.h:74:9: note: expected 'uint8_t *' but argument is of type 'char *'
+../RS485.c:403:5: warning: implicit declaration of function 'sprintf'
+../RS485.c:403:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../RS485.c:403:5: warning: format '%0.1f' expects type 'double', but argument 3 has type 'float'
+../RS485.c:404:5: warning: pointer targets in passing argument 2 of 'RS_TransferMulti' differ in signedness
+../RS485.h:72:9: note: expected 'uint8_t *' but argument is of type 'char *'
+../RS485.c:353:14: warning: unused variable 'i'
+Finished building: ../RS485.c
+ 
+Building file: ../lcd_drv.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"lcd_drv.d" -MT"lcd_drv.d" -c -o "lcd_drv.o" "../lcd_drv.c"
+../lcd_drv.c:1:18: fatal error: conf.h: No such file or directory
+compilation terminated.
+make: *** [lcd_drv.o] Error 1
+12:11:01 **** Incremental Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../lcd_drv.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"lcd_drv.d" -MT"lcd_drv.d" -c -o "lcd_drv.o" "../lcd_drv.c"
+../lcd_drv.c: In function 'lcd_hex':
+../lcd_drv.c:119:2: warning: implicit declaration of function 'sprintf'
+../lcd_drv.c:119:2: warning: incompatible implicit declaration of built-in function 'sprintf'
+../lcd_drv.c: In function 'lcd_define_icon':
+../lcd_drv.c:348:3: warning: array subscript has type 'char'
+Finished building: ../lcd_drv.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+In file included from ../main.c:30:0:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:191:7: error: 'g_RefreshLCD' undeclared (first use in this function)
+../main.c:191:7: note: each undeclared identifier is reported only once for each function it appears in
+../main.c:77:6: warning: unused variable 'i'
+../main.c: In function 'controlLoop':
+../main.c:203:21: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'lastScreenState'
+../main.c:203:21: error: 'lastScreenState' undeclared (first use in this function)
+../main.c:203:39: error: 'SS_Startup' undeclared (first use in this function)
+../main.c:208:25: error: 'g_ScreenState' undeclared (first use in this function)
+../main.c:219:3: error: 'g_InputEnabled' undeclared (first use in this function)
+../main.c:226:7: error: 't' undeclared (first use in this function)
+../main.c:227:20: error: 'SS_MainView_Idle' undeclared (first use in this function)
+../main.c:232:3: error: 'g_InputDisplay' undeclared (first use in this function)
+../main.c:247:21: error: 'SS_Panic_Confirm' undeclared (first use in this function)
+../main.c:249:21: error: 'SS_MainView_Vigil' undeclared (first use in this function)
+../main.c:250:5: error: 'g_Vigil' undeclared (first use in this function)
+../main.c:269:5: error: 'g_LoggedUserID' undeclared (first use in this function)
+../main.c:273:22: error: 'SS_Settings' undeclared (first use in this function)
+../main.c:276:13: error: 'g_newKey' undeclared (first use in this function)
+../main.c:277:4: error: 'g_ShowClockTemp' undeclared (first use in this function)
+../main.c:318:7: error: 'SS_MainView_Alarmed' undeclared (first use in this function)
+../main.c:336:5: error: 'g_Alarmed' undeclared (first use in this function)
+../main.c:342:6: error: 'g_Panic' undeclared (first use in this function)
+../main.c: In function '__vector_2':
+../main.c:429:2: error: 'g_Sabotage' undeclared (first use in this function)
+../main.c: In function '__vector_16':
+../main.c:440:6: error: 'g_BuzzerCycles' undeclared (first use in this function)
+../main.c:441:7: error: 'g_BuzzerCntr' undeclared (first use in this function)
+../main.c:450:19: error: 'g_BuzzerHalfPeriod' undeclared (first use in this function)
+../main.c: In function '__vector_13':
+../main.c:463:8: error: 't' undeclared (first use in this function)
+../main.c:499:5: error: 'g_BacklightTimer_s' undeclared (first use in this function)
+../main.c:504:5: error: 'g_MenuTimer_s' undeclared (first use in this function)
+../main.c:505:5: error: 'g_LogoutTimer_s' undeclared (first use in this function)
+../main.c:507:2: error: 'g_RefreshLCD' undeclared (first use in this function)
+../main.c: In function 'clearKeypadBuffer':
+../main.c:512:3: error: 'g_KeypadBuffer' undeclared (first use in this function)
+../main.c: In function 'updateKeypadBuffer':
+../main.c:517:6: error: 'g_newKey' undeclared (first use in this function)
+../main.c:519:7: error: 'g_KeypadBuffer' undeclared (first use in this function)
+../main.c: In function 'getKeypadCommand':
+../main.c:536:16: error: 'g_KeypadBuffer' undeclared (first use in this function)
+../main.c: In function 'displayMainView':
+../main.c:572:6: error: 'g_ShowClockTemp' undeclared (first use in this function)
+../main.c:572:25: error: 'DISPLAY_CLOCK' undeclared (first use in this function)
+../main.c:578:20: error: 't' undeclared (first use in this function)
+../main.c:583:32: error: 'DISPLAY_TEMP' undeclared (first use in this function)
+../main.c:590:9: error: 'g_Alarmed' undeclared (first use in this function)
+../main.c:590:28: error: 'g_Panic' undeclared (first use in this function)
+../main.c:591:7: error: 'g_Vigil' undeclared (first use in this function)
+../main.c: In function 'displaySensors':
+../main.c:646:7: error: 'g_SensorEnabled' undeclared (first use in this function)
+../main.c:647:25: error: 'g_SensorZones' undeclared (first use in this function)
+../main.c:653:19: error: 'g_SensorStates' undeclared (first use in this function)
+../main.c: In function 'keyBeep':
+../main.c:666:6: error: 'g_KeypadBeep' undeclared (first use in this function)
+../main.c:666:27: error: 'g_BuzzerCycles' undeclared (first use in this function)
+../main.c: In function 'beep':
+../main.c:672:3: error: 'g_BuzzerCycles' undeclared (first use in this function)
+../main.c:676:2: error: 'g_BuzzerHalfPeriod' undeclared (first use in this function)
+../main.c: In function '__vector_1':
+../main.c:697:2: error: 'g_RefreshLCD' undeclared (first use in this function)
+../main.c:703:6: error: 'g_InputEnabled' undeclared (first use in this function)
+../main.c:747:4: error: 'g_Sabotage' undeclared (first use in this function)
+../main.c:757:3: error: 'g_newKey' undeclared (first use in this function)
+../main.c:761:2: error: 'g_BacklightTimer_s' undeclared (first use in this function)
+../main.c:761:23: error: 'g_BacklightTime_s' undeclared (first use in this function)
+../main.c: At top level:
+../main.c:769:1: error: redefinition of '__vector_2'
+../main.c:427:1: note: previous definition of '__vector_2' was here
+../main.c:781:1: error: redefinition of '__vector_13'
+../main.c:458:1: note: previous definition of '__vector_13' was here
+../main.c: In function '__vector_13':
+../main.c:782:2: warning: passing argument 4 of 'DS18B20_showtemp' from incompatible pointer type
+../ds18b20.h:54:6: note: expected 'uint8_t *' but argument is of type 'volatile uint8_t **'
+../main.c:783:2: warning: passing argument 1 of 'DS18B20_ConvertT' from incompatible pointer type
+../ds18b20.h:53:15: note: expected 'uint8_t *' but argument is of type 'volatile uint8_t **'
+make: *** [main.o] Error 1
+12:11:59 **** Incremental Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+In file included from ../main.c:30:0:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../main.c:75:15: error: conflicting types for 'INT'
+../variables.h:69:26: note: previous declaration of 'INT' was here
+../main.c: In function 'main':
+../main.c:81:6: warning: unused variable 'i'
+../main.c: At top level:
+../main.c:773:1: error: redefinition of '__vector_2'
+../main.c:431:1: note: previous definition of '__vector_2' was here
+../main.c:785:1: error: redefinition of '__vector_13'
+../main.c:462:1: note: previous definition of '__vector_13' was here
+../main.c: In function '__vector_13':
+../main.c:786:2: warning: passing argument 4 of 'DS18B20_showtemp' from incompatible pointer type
+../ds18b20.h:54:6: note: expected 'uint8_t *' but argument is of type 'volatile uint8_t **'
+../main.c:787:2: warning: passing argument 1 of 'DS18B20_ConvertT' from incompatible pointer type
+../ds18b20.h:53:15: note: expected 'uint8_t *' but argument is of type 'volatile uint8_t **'
+make: *** [main.o] Error 1
+12:12:37 **** Incremental Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+In file included from ../main.c:30:0:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../main.c:75:15: error: conflicting types for 'INT'
+../variables.h:69:26: note: previous declaration of 'INT' was here
+../main.c: In function 'main':
+../main.c:81:6: warning: unused variable 'i'
+make: *** [main.o] Error 1
+12:12:54 **** Incremental Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+In file included from ../main.c:30:0:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:81:6: warning: unused variable 'i'
+Finished building: ../main.c
+ 
+Building file: ../pgmspace.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"pgmspace.d" -MT"pgmspace.d" -c -o "pgmspace.o" "../pgmspace.c"
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:73:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:74:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:75:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:76:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:77:2: warning: initialization makes integer from pointer without a cast
+../pgmspace.c:78:1: warning: initialization makes integer from pointer without a cast
+Finished building: ../pgmspace.c
+ 
+Building file: ../uart.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"uart.d" -MT"uart.d" -c -o "uart.o" "../uart.c"
+In file included from ../uart.c:43:0:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../uart.c: In function 'uart_gets':
+../uart.c:850:10: warning: unused variable 'j'
+Finished building: ../uart.c
+ 
+Building file: ../variables.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"variables.d" -MT"variables.d" -c -o "variables.o" "../variables.c"
+In file included from ../variables.h:10:0,
+                 from ../variables.c:7:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+Finished building: ../variables.c
+ 
+Building target: Alarm_SM.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Alarm_SM.map -mmcu=atmega644p -o "Alarm_SM.elf"  ./DS18B20.o ./I2C_slave.o ./MFRC522.o ./RS485.o ./lcd_drv.o ./main.o ./pgmspace.o ./uart.o ./variables.o   
+Finished building target: Alarm_SM.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Alarm_SM.elf  >"Alarm_SM.lss"
+Finished building: Alarm_SM.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Alarm_SM.elf  "Alarm_SM.hex"
+Finished building: Alarm_SM.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Alarm_SM.elf  "Alarm_SM.eep"
+Finished building: Alarm_SM.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t Alarm_SM.elf
+   text	   data	    bss	    dec	    hex	filename
+  18592	    630	    866	  20088	   4e78	Alarm_SM.elf
+  18592	    630	    866	  20088	   4e78	(TOTALS)
+Finished building: sizedummy
+ 
+12:37:25 **** Incremental Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+In file included from ../main.c:30:0:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:81:6: warning: unused variable 'i'
+Finished building: ../main.c
+ 
+Building target: Alarm_SM.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Alarm_SM.map -mmcu=atmega644p -o "Alarm_SM.elf"  ./DS18B20.o ./I2C_slave.o ./MFRC522.o ./RS485.o ./lcd_drv.o ./main.o ./pgmspace.o ./uart.o ./variables.o   
+Finished building target: Alarm_SM.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Alarm_SM.elf  >"Alarm_SM.lss"
+Finished building: Alarm_SM.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Alarm_SM.elf  "Alarm_SM.hex"
+Finished building: Alarm_SM.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Alarm_SM.elf  "Alarm_SM.eep"
+Finished building: Alarm_SM.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t Alarm_SM.elf
+   text	   data	    bss	    dec	    hex	filename
+  18590	    630	    866	  20086	   4e76	Alarm_SM.elf
+  18590	    630	    866	  20086	   4e76	(TOTALS)
+Finished building: sizedummy
+ 
+12:41:29 **** Incremental Build of configuration Release for project Alarm_SM ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+In file included from ../main.c:30:0:
+../main.h:48:0: warning: "M_ADDR" redefined
+../main.h:36:0: note: this is the location of the previous definition
+../main.h:49:0: warning: "ADDR" redefined
+../main.h:37:0: note: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:81:6: warning: unused variable 'i'
+Finished building: ../main.c
+ 
+Building target: Alarm_SM.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Alarm_SM.map -mmcu=atmega644p -o "Alarm_SM.elf"  ./DS18B20.o ./I2C_slave.o ./MFRC522.o ./RS485.o ./lcd_drv.o ./main.o ./pgmspace.o ./uart.o ./variables.o   
+Finished building target: Alarm_SM.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Alarm_SM.elf  >"Alarm_SM.lss"
+Finished building: Alarm_SM.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Alarm_SM.elf  "Alarm_SM.hex"
+Finished building: Alarm_SM.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Alarm_SM.elf  "Alarm_SM.eep"
+Finished building: Alarm_SM.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t Alarm_SM.elf
+   text	   data	    bss	    dec	    hex	filename
+  18584	    630	    866	  20080	   4e70	Alarm_SM.elf
+  18584	    630	    866	  20080	   4e70	(TOTALS)
+Finished building: sizedummy
+ 
